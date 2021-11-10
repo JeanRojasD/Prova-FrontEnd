@@ -2,7 +2,7 @@ import React from "react";
 import logo from '../../assets/images/logo.svg';
 import styled from 'styled-components';
 
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Container = styled.div`
@@ -21,6 +21,10 @@ const Container = styled.div`
             font-weight: bold;
             color: #26F0F1;
         }
+
+        a{
+            text-decoration: none;
+        }
     }
 `
 const Image = styled.img`
@@ -34,10 +38,7 @@ const Menu = () => {
                 <nav>
                     <ul className='options'>
                         <Link to="/"><li>Index</li></Link>
-                        <Link to="/"><li>Show</li></Link>
-                        <Link to="/"><li>Create</li></Link>
-                        <Link to="/"><li>Delete</li></Link>
-                        <Link to="/"><li>Update</li></Link>
+                        <Link to="/create"><li>Create</li></Link>
                     </ul>
                 </nav>
         </Container>
