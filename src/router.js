@@ -1,15 +1,15 @@
 import React from "react"
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Index from './pages/Index/Index'
 
-const Routes = () =>{
+const RouterLinks = () =>{
     return(
         <Router>
-            <Switch>
-                <Route path='/' exact component={Index} />
-            </Switch>
+            <Routes>
+                <Route path='/' element={<Index />} />
+            </Routes>
         </Router>
     )
 }
 
-export default Routes
+export default RouterLinks

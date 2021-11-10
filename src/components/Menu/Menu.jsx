@@ -2,6 +2,9 @@ import React from "react";
 import logo from '../../assets/images/logo.svg';
 import styled from 'styled-components';
 
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+
+
 const Container = styled.div`
     display: flex;
     flex-direction: row;
@@ -25,18 +28,18 @@ const Image = styled.img`
 `
 
 const Menu = () => {
-    return(
+    return (
         <Container>
             <Image src={logo} alt="logo" />
-            <nav>
-                <ul className='options'>
-                    <li>Index</li>
-                    <li>Show</li>
-                    <li>Create</li>
-                    <li>Delete</li>
-                    <li>Update</li>
-                </ul>
-            </nav>
+                <nav>
+                    <ul className='options'>
+                        <Link to="/"><li>Index</li></Link>
+                        <Link to="/"><li>Show</li></Link>
+                        <Link to="/"><li>Create</li></Link>
+                        <Link to="/"><li>Delete</li></Link>
+                        <Link to="/"><li>Update</li></Link>
+                    </ul>
+                </nav>
         </Container>
     );
 }
