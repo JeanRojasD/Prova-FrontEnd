@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -22,7 +22,11 @@ const TableComponent = () => {
     setData(response.data)
     return response.data
   }
-  getData()
+
+  useEffect(() => {
+    getData()
+  },[])
+  
 
 
 
@@ -42,7 +46,7 @@ const TableComponent = () => {
           </TableHead>
           <TableBody>
             {data.map((user) =>
-              <TableRow>
+              <TableRow key={user.id}>
                 <TableCell>{user.id}</TableCell>
                 <TableCell>{user.nome}</TableCell>
                 <TableCell align="left">{user.email}</TableCell>
