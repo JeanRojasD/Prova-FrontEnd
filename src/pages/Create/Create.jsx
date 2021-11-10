@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import TextField from '@material-ui/core/TextField';
 
@@ -7,6 +7,13 @@ import Button from '@material-ui/core/Button';
 import { Form } from '../../assets/index'
 
 const Create = () => {
+
+    const [user, setuser] = useState({
+        nome: '',
+        email: '',
+        phone: ''
+    })
+
     return(
         <div>
             <Menu />

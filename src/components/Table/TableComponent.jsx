@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -8,42 +8,23 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
 
+import api from '../../api/user'
 
 const TableComponent = () => {
 
-  const user = [
-    {
-      "id": 1,
-      "nome": "Jean",
-      "email": "email@email.com",
-      "telefone": "4599405679"
-    },
-    {
-      "id": 1,
-      "nome": "Jean",
-      "email": "email@email.com",
-      "telefone": "4599405679"
-    },
-    {
-      "id": 1,
-      "nome": "Jean",
-      "email": "email@email.com",
-      "telefone": "4599405679"
-    },
-    {
-      "id": 1,
-      "nome": "Jean",
-      "email": "email@email.com",
-      "telefone": "4599405679"
-    },
-    {
-      "id": 1,
-      "nome": "Jean",
-      "email": "email@email.com",
-      "telefone": "4599405679"
-    }
+  const [data, setData] = useState([])
 
-  ];
+  const getData = async () => {
+
+    const response = await api.get("/")
+    
+    console.log(response)
+    setData(response.data)
+    return response.data
+  }
+  getData()
+
+
 
   return (
     <div className="listmap">
@@ -60,12 +41,12 @@ const TableComponent = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {user.map((users, index) =>
-              <TableRow key={index}>
-                <TableCell>{users.id}</TableCell>
-                <TableCell>{users.nome}</TableCell>
-                <TableCell align="left">{users.email}</TableCell>
-                <TableCell align="left">{users.telefone}</TableCell>
+            {data.map((user) =>
+              <TableRow>
+                <TableCell>{user.id}</TableCell>
+                <TableCell>{user.nome}</TableCell>
+                <TableCell align="left">{user.email}</TableCell>
+                <TableCell align="left">{user.phone}</TableCell>
                 <TableCell align="center">
                   <Button variant="contained"> Editar </Button>
                 </TableCell>
