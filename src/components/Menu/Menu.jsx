@@ -19,7 +19,7 @@ const Container = styled.div`
         li{
             margin-left: 10px;
             font-weight: bold;
-            color: #26F0F1;
+            color: #9c27b0;
         }
 
         a{

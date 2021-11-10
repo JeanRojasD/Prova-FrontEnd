@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 import api from '../../api/user'
 
@@ -26,9 +27,13 @@ const TableComponent = () => {
   useEffect(() => {
     getData()
   },[])
-  
 
+  const onDelete = async (id) => {
 
+    await api.delete(`/${id}`)
+
+    window.location.reload();
+  }
 
   return (
     <div className="listmap">
@@ -52,10 +57,10 @@ const TableComponent = () => {
                 <TableCell align="left">{user.email}</TableCell>
                 <TableCell align="left">{user.phone}</TableCell>
                 <TableCell align="center">
-                  <Button variant="contained"> Editar </Button>
+                  <Link to={{pathname: `/edit/${user.id}`}}><Button variant="contained" color="secondary">Editar</Button></Link>
                 </TableCell>
                 <TableCell align="center">
-                  <Button variant="contained" color="error"> Delete </Button>
+                  <Button variant="contained" color="error" onClick={() => onDelete(user.id)}> Delete </Button>
                 </TableCell>
               </TableRow>
             )}
