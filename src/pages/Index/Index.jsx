@@ -3,7 +3,6 @@ import styled from "styled-components"
 
 import Menu from "../../components/Menu/Menu"
 import Table from "../../components/Table/TableComponent"
-import Search from "../../components/Search/Search"
 
 const Container = styled.div`
     width: 100%;
@@ -19,7 +18,6 @@ const Index = () => {
     return(
         <Container>
             <Menu/>
-            <Search/>
             <Table/>
         </Container>
     );

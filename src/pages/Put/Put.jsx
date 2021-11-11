@@ -37,7 +37,7 @@ const Put = () => {
     const registerSubmit = async () => {
         await api.put(`/${params.userId}`, user);
 
-        navigate(-1);
+        navigate("/");
     }
 
 

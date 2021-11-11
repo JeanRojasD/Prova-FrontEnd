@@ -19,10 +19,10 @@ const Create = () => {
     }
 
     const registerSubmit = async () => {
-        await api.post("/", user);
-
-        navigate(-1);
+        await api.post("/", user)
+        navigate(-1)
     }
+
 
     return(
         <div>
