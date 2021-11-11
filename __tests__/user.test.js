@@ -1,31 +1,31 @@
-import user from '../src/api/user'
-import axios from 'axios'
+const axios = require('axios')
+const api = require('../src/api/user')
 
-jest.mock('axios');
+describe('fetchData', () => {
 
-describre('user', () => {
-    it('fetches sucessfully data from an API', async () => {
-        const data = {
-            data: {
-                user: [
-                    {
-                        id: 1,
-                        nome: 'Jean',
-                        email: 'jeans@gmail.com',
-                        phone: '45999405679'
-                    },
-                ]
-            }
+    beforeAll(async () => {
+        const user = {
+            nome: 'Jean',
+            email: 'jeanrojas@gmail.com',
+            phone: '45999405679'
         }
 
-         axios.get.mockImplementationOnce(() => Promise.resolve(data));
+        await api.post("/", user)
+    })
+
+    it('Puxando dados da api corretamente', async () => {
+
+        const response = await api.get("/")
+
+        const listUser = [{
+            id: 1,
+            nome: 'Jean',
+            email: 'jeanrojas@gmail.com',
+            phone: '45999405679'
+        }]
+
+        expect(response.status).toBe(200)
+        expect(response.data).toEqual(listUser)
     });
-   
-    it('fetches erroneously data from an API', async () => {
-        const errorMessage = 'Network Error';
- 
-        axios.get.mockImplementationOnce(() =>
-          Promise.reject(new Error(errorMessage)),
-        );
-    });
-})
+
+});

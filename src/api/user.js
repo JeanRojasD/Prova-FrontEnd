@@ -1,5 +1,5 @@
-import axios from 'axios'
-import config from './config'
+const axios = require('axios')
+const config = require('./config')
 
 const instance = axios.create({
     baseURL: `${config.baseURL}/usuarios`,
@@ -8,4 +8,4 @@ const instance = axios.create({
     }
 })
 
-export default instance
+module.exports = instance
