@@ -69,7 +69,7 @@ const TableComponent = () => {
           </TableHead>
           <TableBody>
             {data.filter((user) => {
-              if (search == "") {
+              if (search === "") {
                 return user
               } else if (user.nome.toLowerCase().includes(search.toLowerCase())) {
                 return user

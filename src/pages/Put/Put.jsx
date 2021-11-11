@@ -50,7 +50,7 @@ const Put = () => {
                 <TextField className="text" id="outlined-basic" required label="Nome" variant="outlined" onChange={handleChange} type="text" name="nome" value={user.nome || ''} />
                 <TextField className="text" id="outlined-basic" required label="Email" variant="outlined" onChange={handleChange} type="text" name="email" value={user.email || ''} disabled/>
                 <TextField className="text" id="outlined-basic" required label="Telefone" variant="outlined" onChange={handleChange} type="text" name="phone" value={user.phone || ''} />
-                <Button className="button" variant="contained" type="submit" color="secondary" type="submit"> Salvar Alterações </Button>
+                <Button className="button" variant="contained"  color="secondary" type="submit"> Salvar Alterações </Button>
             </Form>
         </div>
     );
